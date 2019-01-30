@@ -1,4 +1,4 @@
-public class PermutationPalindrome {
+class Solution {
     public static Boolean isPermutationPalindrome(String str) {
         int bitVector = 0;
         for (char c: str.toCharArray()){
