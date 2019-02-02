@@ -1,25 +1,19 @@
 class Solution {
-    public static String stringCompression (String str){
+
+    public static String stringCompression(String str){
         int count = 0;
-        char current =  str.charAt(0);
-
-        System.out.println("current: " + current);
-
         StringBuilder result = new StringBuilder();
 
-        for (char c: str.toCharArray()){
-            if (c == current){
-                count++;
-            } else {
-                result.append(current);
+        for (int i = 0; i < str.length(); i++){
+            count++;
+
+            if ((i+1) >= str.length() || str.charAt(i) != str.charAt(i+1)){
+                result.append(str.charAt(i));
                 result.append(count);
-                count = 1;
-                current = c;
+                count = 0;
             }
         }
-        result.append(current);
-        result.append(count);
-        return result.toString();
+        return result.length() > str.length() ? str : result.toString();
     }
 
     public static void main(String[] args){
